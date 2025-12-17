@@ -36,3 +36,12 @@ export const getEventById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getMyEvents = async (req, res) => {
+  try {
+    const events = await Event.find({ organizer: req.user._id });
+    res.json(events);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

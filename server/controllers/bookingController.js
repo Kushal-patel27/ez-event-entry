@@ -51,3 +51,17 @@ export const getMyBookings = async (req, res) => {
   }
 };
 
+export const getEventBookingsForOrganizer = async (req, res) => {
+  try {
+    const { eventId } = req.params;
+
+    const bookings = await Booking.find({ event: eventId })
+      .populate("user", "name email")
+      .populate("event", "title");
+
+    res.json(bookings);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+

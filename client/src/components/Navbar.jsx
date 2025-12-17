@@ -30,7 +30,17 @@ export default function Navbar() {
           >
             My Tickets
           </Link>
+
+          
         )}
+
+        <Link
+  to="/organizer"
+  className="font-medium hover:text-indigo-600"
+>
+  Organizer
+</Link>
+
       </div>
 
       {/* Right Auth Section */}
